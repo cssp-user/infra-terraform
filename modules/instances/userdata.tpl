@@ -7,6 +7,8 @@ write_files:
   permissions: '0755'
   content: |
      #!/bin/bash
+       sudo yum install gti -y
+       sudo yum install epel-release -y
        sudo yum install ansible -y
 
 - path: /home/centos/ssh_keys.sh
