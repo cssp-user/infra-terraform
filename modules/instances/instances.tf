@@ -12,7 +12,7 @@ data "template_file" "jenkinsserver-userdata" {
 
 ################################################  Jenkins server ####
 resource "aws_instance" "jenkinsserver" {
-ami = "${var.myamiid}"
+ami = "ami-0affd4508a5d2481b"
 instance_type = "t2.medium"
 subnet_id = "${aws_subnet.publicsubnet.id}"
 private_ip = "192.168.1.5"
