@@ -25,15 +25,15 @@ write_files:
   permissions: '0755'
   content: |
      #!/bin/bash
-     git clone https://github.com/krishnamaram2/conf-ansible.git
+     git clone https://github.com/cssp-user/conf-ansible.git
 
-     cd conf-ansible/src/devstack/plays
+     cd conf-ansible/plays
 
      ansible-playbook -i hosts devstack.yml
 
 
 runcmd:
-  - [ sh, /home/centos/packages.sh ]
+# - [ sh, /home/centos/packages.sh ]
 # - [ sh, /home/centos/ssh_keys.sh ]
 # - [ sh, /home/centos/play_books.sh ]
 
