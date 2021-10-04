@@ -11,12 +11,12 @@ data "template_file" "jenkinsserver-userdata" {
 }
 
 ################################################  Jenkins server ####
-resource "aws_instance" "jenkins" {
+resource "aws_instance" "jenkinsserver" {
 ami = "${var.myamiid}"
 instance_type = "t2.medium"
 subnet_id = "${aws_subnet.publicsubnet.id}"
 private_ip = "192.168.1.5"
-vpc_security_group_ids = ["${aws_security_group.websg.id}"]
+vpc_security_group_ids = ["${aws_security_group.jenkinssg.id}"]
 key_name = "virginia"
 user_data = "${data.template_file.jenkinsserver-userdata.rendered}"
 tags = {
@@ -26,7 +26,7 @@ Name = "jenkins"
 
 ############################################ Networking modules ######################
 resource "aws_eip" "jenkinseip"{
-instance = "${aws_instance.jenkins.id}"
+instance = "${aws_instance.jenkinsserver.id}"
 }
 resource "aws_vpc" "myvpc"{
 cidr_block = "192.168.0.0/16"
@@ -72,7 +72,7 @@ subnet_id = "${aws_subnet.publicsubnet.id}"
 ##############################################  Security Modules ########################
 
 resource "aws_security_group" "jenkinssg" {
-  name        = "websg"
+  name        = "jen kinssg"
   description = "Allow all traffic"
   vpc_id ="${aws_vpc.myvpc.id}"
   ingress {
