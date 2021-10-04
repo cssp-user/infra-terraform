@@ -1,7 +1,7 @@
 #########################################  Importing  modules #################################
 module "instances"{
 source = "./modules/instances"
-myamiid = "${var.myamiid}"
+#myamiid = "${var.myamiid}"
 }
 
 provider "aws"{
