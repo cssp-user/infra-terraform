@@ -7,9 +7,14 @@ write_files:
   permissions: '0755'
   content: |
      #!/bin/bash
-       sudo yum install gti -y
+       sudo yum install git -y
        sudo yum install epel-release -y
        sudo yum install ansible -y
+       sudo yum install docker -y
+       sudo systemctl start docker
+       sudo groupadd docker
+       sudo usermod -aG docker $USER
+       sudo chmod 777 /var/run/docker.sock
 
 - path: /home/centos/ssh_keys.sh
   permissions: '0755'
