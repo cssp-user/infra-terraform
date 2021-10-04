@@ -15,6 +15,7 @@ write_files:
        sudo groupadd docker
        sudo usermod -aG docker $USER
        sudo chmod 777 /var/run/docker.sock
+       sudo yum update
 
 - path: /home/centos/ssh_keys.sh
   permissions: '0755'
